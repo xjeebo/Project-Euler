@@ -4,6 +4,7 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 # find the sum of the even-valued terms.
 
+# Another method is by recursion (this isn't by recursion)
 i = 0
 j = 1
 sum = 0
