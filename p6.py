@@ -10,7 +10,7 @@
 SumSquare = 0
 SquareSum = 0
 for i in range(1,101):
-    SumSquare += i**2
-    SquareSum += i
+    SumSquare += i**2 # running sum of i squared
+    SquareSum += i    # running sum of i, which will later be squared when the total is found
 
 print("Answer: "+str(SquareSum**2-SumSquare))
