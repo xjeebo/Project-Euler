@@ -28,24 +28,24 @@ greatest = 1
 flag = True
 lst = []
 tempNum = 1
-for i in range(0,len(numStr)):
+for i in range(0,len(numStr)): # traverse through every character until the end
     tempStr = ""
-    for j in range(i,i+13):
-        if j == len(numStr):
-            flag = False
+    for j in range(i,i+13):  # for each character attain the next 12
+        if j == len(numStr): # this to avoid traversing past the end
+            flag = False     # terminate forloop immediately if so
             break
         else:
-            tempStr += numStr[j]
-            flag = True
-    if flag == True:    
+            tempStr += numStr[j]  # concatentation 
+            flag = True           # set to true, which will then access the next statement
+    if flag == True:              # store the entire string in the list
         lst.append(tempStr)
 
 for i in lst:
-    for j in range(0,13):
-        tempNum *= int(i[j])
-    if tempNum > greatest:
+    for j in range(0,13):         # traverse the 13 adjacent digits and convert them to int
+        tempNum *= int(i[j])      # multiply them each together 
+    if tempNum > greatest:        # check for the greatest value
         greatest = tempNum
-    tempNum = 1
+    tempNum = 1                   # reset the temp value
 
 print(greatest)
 
