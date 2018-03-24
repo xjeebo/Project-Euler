@@ -47,7 +47,7 @@ def funct2(lst):
     for i in range(0,3):
         if i < len(lst) and (i+40) < len(lst) and (i+60) < len(lst):
             a = lst[i]*lst[i+20]*lst[i+40]*lst[i+60]
-            lst2.append(a)
+            #lst2.append(a)
 
 # store all integer values in the list
 for i in range(0,len(grid)):
@@ -56,4 +56,4 @@ for i in range(0,len(grid)):
         lst.append(int(temp))
 
 funct1(lst)
-print(MAX)
+print(MAX) # the max so far for just the 4 adjacent numbers going from up and down columns for now...
