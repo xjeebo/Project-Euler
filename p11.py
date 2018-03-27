@@ -47,6 +47,9 @@ def funct2(lst): # obtain the product of all 4 adjacent possibilities going left
     for i in range(0,20):
         for j in range(0,17):
             print(lst[j+i*20],lst[j+1+i*20],lst[j+2+i*20],lst[j+3+i*20])
+            a = lst[j+i*20]*lst[j+1+i*20]*lst[j+2+i*20]*lst[j+3+i*20]
+            if a > MAX:
+                MAX = a
         print("__________________________")
 
 
