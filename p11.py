@@ -26,28 +26,29 @@ grid = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 49 49 99 40 
 row,column = 20,20
 matrix = [[0 for x in range(row)] for y in range(column)] 
 lst = [8]
-lst2 = []
 n = 0
 MAX = 0
 
-def funct1(lst): # obtain the product of all 4 adjacent possibilities going up and down
-#    global lst2
+def funct1(lst): # obtain the product of all 4 adjacent possibilities going up then down
+
     global MAX
     for i in range(0,20):
         for j in range(0,20):
             if (i+j*20) < len(lst) and (i+j*20+40) < len(lst) and (i+j*20+60) < len(lst):
-                print(lst[i+j*20],lst[i+j*20+20],lst[i+j*20+40],lst[i+j*20+60])
+                #print(lst[i+j*20],lst[i+j*20+20],lst[i+j*20+40],lst[i+j*20+60])
                 a = lst[i+j*20]*lst[i+j*20+20]*lst[i+j*20+40]*lst[i+j*20+60]
                 if a > MAX:
                     MAX = a
-#                lst2.append(a)
 
-def funct2(lst):
-#    global lst2
-    for i in range(0,3):
-        if i < len(lst) and (i+40) < len(lst) and (i+60) < len(lst):
-            a = lst[i]*lst[i+20]*lst[i+40]*lst[i+60]
-            #lst2.append(a)
+
+def funct2(lst): # obtain the product of all 4 adjacent possibilities going left then right
+
+    global MAX
+    for i in range(0,20):
+        for j in range(0,17):
+            print(lst[j+i*20],lst[j+1+i*20],lst[j+2+i*20],lst[j+3+i*20])
+        print("__________________________")
+
 
 # store all integer values in the list
 for i in range(0,len(grid)):
@@ -55,5 +56,7 @@ for i in range(0,len(grid)):
         temp = grid[i+1]+grid[i+2]
         lst.append(int(temp))
 
-funct1(lst)
-print(MAX) # the max so far for just the 4 adjacent numbers going from up and down columns for now...
+#funct1(lst)
+funct2(lst)
+
+print(MAX)
