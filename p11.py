@@ -30,7 +30,6 @@ n = 0
 MAX = 0
 
 def funct1(lst): # obtain the product of all 4 adjacent possibilities going up then down
-
     global MAX
     for i in range(0,20):
         for j in range(0,20):
@@ -42,15 +41,22 @@ def funct1(lst): # obtain the product of all 4 adjacent possibilities going up t
 
 
 def funct2(lst): # obtain the product of all 4 adjacent possibilities going left then right
-
     global MAX
-    for i in range(0,20):
+    for i in range(0,10):
         for j in range(0,17):
-            print(lst[j+i*20],lst[j+1+i*20],lst[j+2+i*20],lst[j+3+i*20])
+            #print(lst[j+i*20],lst[j+1+i*20],lst[j+2+i*20],lst[j+3+i*20])
             a = lst[j+i*20]*lst[j+1+i*20]*lst[j+2+i*20]*lst[j+3+i*20]
             if a > MAX:
                 MAX = a
         print("__________________________")
+
+
+def funct3(lst): # obtain diagonally starting from upper row to the bottom row
+    global MAX
+    for j in range(0,17):
+        for i in range(0,17):
+            print(lst[i+j*20],lst[i+21+j*20],lst[i+42+j*20],lst[i+63+j*20])
+            
 
 
 # store all integer values in the list
@@ -60,6 +66,6 @@ for i in range(0,len(grid)):
         lst.append(int(temp))
 
 #funct1(lst)
-funct2(lst)
-
+#funct2(lst)
+funct3(lst)
 print(MAX)
