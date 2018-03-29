@@ -29,34 +29,43 @@ lst = [8]
 n = 0
 MAX = 0
 
+def checkMax(a):
+    global MAX
+    if a > MAX:
+        MAX = a
+        
 def funct1(lst): # obtain the product of all 4 adjacent possibilities going up then down
     global MAX
-    for i in range(0,20):
+    for i in range(0,20):   
+        #print(lst[i+320],lst[i+340],lst[i+360],lst[i+380])
+        a = lst[i+320]*lst[i+340]*lst[i+360]*lst[i+380]
+        checkMax(a)
         for j in range(0,20):
             if (i+j*20) < len(lst) and (i+j*20+40) < len(lst) and (i+j*20+60) < len(lst):
                 #print(lst[i+j*20],lst[i+j*20+20],lst[i+j*20+40],lst[i+j*20+60])
                 a = lst[i+j*20]*lst[i+j*20+20]*lst[i+j*20+40]*lst[i+j*20+60]
-                if a > MAX:
-                    MAX = a
+                checkMax(a)
+
 
 
 def funct2(lst): # obtain the product of all 4 adjacent possibilities going left then right
     global MAX
     for i in range(0,10):
+        a = lst[i*20+16]*lst[i*20+17]*lst[i*20+18]*lst[i*20+19] # check the last 4 from each row
+        #print(lst[i*20+16],lst[i*20+17],lst[i*20+18],lst[i*20+19])
+        checkMax(a)   
         for j in range(0,17):
             #print(lst[j+i*20],lst[j+1+i*20],lst[j+2+i*20],lst[j+3+i*20])
             a = lst[j+i*20]*lst[j+1+i*20]*lst[j+2+i*20]*lst[j+3+i*20]
-            if a > MAX:
-                MAX = a
-        print("__________________________")
-
+            checkMax(a)
 
 def funct3(lst): # obtain diagonally starting from upper row to the bottom row
     global MAX
     for j in range(0,17):
         for i in range(0,17):
-            print(lst[i+j*20],lst[i+21+j*20],lst[i+42+j*20],lst[i+63+j*20])
-            
+            #print(lst[i+j*20],lst[i+21+j*20],lst[i+42+j*20],lst[i+63+j*20])
+            a = lst[i+j*20]*lst[i+21+j*20]*lst[i+42+j*20]*lst[i+63+j*20]
+            checkMax(a)
 
 
 # store all integer values in the list
@@ -65,7 +74,7 @@ for i in range(0,len(grid)):
         temp = grid[i+1]+grid[i+2]
         lst.append(int(temp))
 
-#funct1(lst)
-#funct2(lst)
+funct1(lst)
+funct2(lst)
 funct3(lst)
 print(MAX)
